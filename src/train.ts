@@ -1,4 +1,4 @@
-console.log("\n >> N - Task << \n");
+console.log("\n >> O - Task << \n");
 
 // M-TASK
 // function SquareNumbers(numbers: number[]) {
@@ -33,11 +33,24 @@ console.log("\n >> N - Task << \n");
 // }
 
 // ***** N task ***** //
-function palindromCheck(a: string) {
-  const reverseStr = a.split("").reverse().join("");
-  return reverseStr === a;
+// function palindromCheck(a: string) {
+//   const reverseStr = a.split("").reverse().join("");
+//   return reverseStr === a;
+// }
+
+// console.log(palindromCheck("dad"));
+// console.log(palindromCheck("son"));
+// console.log("");
+
+// O-TASK
+
+// Shunday function yozing, u har xil valuelardan iborat array qabul qilsin va array ichidagi sonlar yigindisini hisoblab chiqqan javobni qaytarsin. MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45.
+
+function calculateSumOfNumbers(arr: any[]) {
+  return arr
+    .filter((item) => typeof item === "number")
+    .reduce((a, b) => a + b, 0);
 }
 
-console.log(palindromCheck("dad"));
-console.log(palindromCheck("son"));
-console.log("");
+console.log(calculateSumOfNumbers([5, 10, "15", false]));
+console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]), "\n");
