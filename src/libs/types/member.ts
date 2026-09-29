@@ -17,7 +17,7 @@ export interface Member {
   updatedAt: Date;
 }
 
-// data input to db
+// data input to db signup
 export interface MemberInput {
   memberType?: MemberType;
   memberStatus?: MemberStatus;
@@ -28,4 +28,9 @@ export interface MemberInput {
   memberDesc?: string;
   memberImage?: string;
   memberPoints?: number;
+}
+
+export interface LoginInput {
+  memberNick: string;
+  memberPassword: string;
 }
