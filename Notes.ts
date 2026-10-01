@@ -20,6 +20,12 @@
   ...
 */
 
+/** FRONTEND DEVELOPMENT **/
+/*
+    Traditional Frontend Development   => BSSR (EJS) framework
+    Modern Frontend Development        => SPA  (REACT) library
+*/
+
 // Promise<void> => TypeScript type (hech narsa qaytarmaydi)
 // Promise<string> => Ma'lumot qaytaradi (return)
 // asyncronius function larda Promisega olinadi
@@ -36,12 +42,6 @@
 // Frontend  <=API=> Backend <=TCP=> DB
 
 // .lean() => DB dan olingan malumotni o'zgartirish mumkin bo'ladi
-
-/** FRONTEND DEVELOPMENT **/
-/*
-    Traditional Frontend Development   => BSSR (EJS) framework
-    Modern Frontend Development        => SPA  (REACT) library
-*/
 
 /** COOKIES: **/
 /*
