@@ -1,4 +1,4 @@
-console.log("\n >> P - Task << \n");
+console.log("\n >> Q - Task << \n");
 
 // M-TASK
 // function SquareNumbers(numbers: number[]) {
@@ -56,9 +56,21 @@ console.log("\n >> P - Task << \n");
 // console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]), "\n");
 
 // P-TASK
-function objectToArray(obj: object) {
-  return Object.entries(obj);
+// function objectToArray(obj: object) {
+//   return Object.entries(obj);
+// }
+
+// console.log(objectToArray({ a: 10, b: 20 }));
+// console.log(objectToArray({ x: 9, y: 35, z: 55 }));
+
+// Q-TASK
+// Shunday function yozing, u 2 ta parametrgga ega bolib birinchisi object, ikkinchisi string. Agar string parametr objectni propertysi bolsa true bolmasa false qaytarsin. MASALAN: hasProperty({ name: "BMW", model: "M3" }, "model") return true; hasProperty({ name: "BMW", model: "M3" }, "year") return false.
+
+function hasProperty(obj: object, key: string): boolean {
+  return Object.prototype.hasOwnProperty.call(obj, key);
 }
 
-console.log(objectToArray({ a: 10, b: 20 }));
-console.log(objectToArray({ x: 9, y: 35, z: 55 }));
+// const hasProperty = (obj: object, key: string): boolean => key in obj;
+
+console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); // true
+console.log(hasProperty({ name: "BMW", model: "M3" }, "year")); // false
