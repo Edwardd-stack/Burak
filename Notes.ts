@@ -26,6 +26,12 @@
     Modern Frontend Development        => SPA  (REACT) library
 */
 
+/** COOKIES: **/
+/*
+    COOKIE => Himoyasi yuqori | har bir requestga join qiladi | self destroy
+    COOKIE => Himoyalangan muttaham kamikatze
+*/
+
 // Promise<void> => TypeScript type (hech narsa qaytarmaydi)
 // Promise<string> => Ma'lumot qaytaradi (return)
 // asyncronius function larda Promisega olinadi
@@ -42,12 +48,6 @@
 // Frontend  <=API=> Backend <=TCP=> DB
 
 // .lean() => DB dan olingan malumotni o'zgartirish mumkin bo'ladi
-
-/** COOKIES: **/
-/*
-    COOKIE => Himoyasi yuqori | har bir requestga join qiladi | self destroy
-    COOKIE => Himoyalangan muttaham kamikatze
-*/
 
 /** VALIDATION: **/
 /*
