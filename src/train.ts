@@ -1,4 +1,4 @@
-console.log("\n >> Q - Task << \n");
+console.log("\n >> R - Task << \n");
 
 // M-TASK
 // function SquareNumbers(numbers: number[]) {
@@ -66,11 +66,21 @@ console.log("\n >> Q - Task << \n");
 // Q-TASK
 // Shunday function yozing, u 2 ta parametrgga ega bolib birinchisi object, ikkinchisi string. Agar string parametr objectni propertysi bolsa true bolmasa false qaytarsin. MASALAN: hasProperty({ name: "BMW", model: "M3" }, "model") return true; hasProperty({ name: "BMW", model: "M3" }, "year") return false.
 
-function hasProperty(obj: object, key: string): boolean {
-  return Object.prototype.hasOwnProperty.call(obj, key);
+// function hasProperty(obj: object, key: string): boolean {
+//   return Object.prototype.hasOwnProperty.call(obj, key);
+// }
+
+// // const hasProperty = (obj: object, key: string): boolean => key in obj;
+
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); // true
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "year")); // false
+
+// R-TASK
+// Shunday function yozing, u string parametrga ega bolsin. String "1+2" holatda pass qilinganda string ichidagi sonlar yigindisini number holatda qaytarsin. MASALAN: calculate("1+3") return 4.
+
+function calculate(str: string): number {
+  return str.split("+").reduce((sum, num) => sum + Number(num), 0);
 }
 
-// const hasProperty = (obj: object, key: string): boolean => key in obj;
-
-console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); // true
-console.log(hasProperty({ name: "BMW", model: "M3" }, "year")); // false
+console.log(calculate("1+3"));
+console.log(calculate("1+2+3"));
