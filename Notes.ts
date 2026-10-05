@@ -32,6 +32,14 @@
     COOKIE => Himoyalangan muttaham kamikatze
 */
 
+/** VALIDATION: **/
+/*
+    Frontend validation
+    Pipeline validation
+    Backend validation
+    Database validation
+*/
+
 // Promise<void> => TypeScript type (hech narsa qaytarmaydi)
 // Promise<string> => Ma'lumot qaytaradi (return)
 // asyncronius function larda Promisega olinadi
@@ -48,13 +56,6 @@
 // Frontend  <=API=> Backend <=TCP=> DB
 
 // .lean() => DB dan olingan malumotni o'zgartirish mumkin bo'ladi
-
-/** VALIDATION: **/
-/*
-    Frontend validation
-    Backend validation
-    Database validation
-*/
 
 // "enctype"="multipart/form-data" => Turli xil fayl formatdagi malumotlarni formdan yuborishga ruhsat beradi.
 

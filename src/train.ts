@@ -1,4 +1,4 @@
-console.log("\n >> R - Task << \n");
+console.log("\n >> S - Task << \n");
 
 // M-TASK
 // function SquareNumbers(numbers: number[]) {
@@ -78,9 +78,23 @@ console.log("\n >> R - Task << \n");
 // R-TASK
 // Shunday function yozing, u string parametrga ega bolsin. String "1+2" holatda pass qilinganda string ichidagi sonlar yigindisini number holatda qaytarsin. MASALAN: calculate("1+3") return 4.
 
-function calculate(str: string): number {
-  return str.split("+").reduce((sum, num) => sum + Number(num), 0);
+// function calculate(str: string): number {
+//   return str.split("+").reduce((sum, num) => sum + Number(num), 0);
+// }
+
+// console.log(calculate("1+3"));
+// console.log(calculate("1+2+3"));
+
+// S-TASK
+
+// Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin. MASALAN: missingNumber([3, 0, 1]) return 2.
+
+function missingNumber(nums: number[]): number {
+  const n = nums.length;
+  const expectedSum = (n * (n + 1)) / 2;
+  const actualSum = nums.reduce((sum, num) => sum + num, 0);
+  return expectedSum - actualSum;
 }
 
-console.log(calculate("1+3"));
-console.log(calculate("1+2+3"));
+console.log(missingNumber([3, 0, 1]));
+console.log(missingNumber([0, 1]));
