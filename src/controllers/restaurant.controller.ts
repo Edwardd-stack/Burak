@@ -52,7 +52,7 @@ restaurantController.processSignup = async (
     if (!file) throw new Errors(HttpCode.BAD_REQUEST, Message.NO_FILE_UPLOADED);
 
     const newMember: MemberInput = req.body;
-    newMember.memberImage = file?.path;
+    newMember.memberImage = file?.path.replace(/\\/g, "/");
     newMember.memberType = MemberType.RESTAURANT;
     const result = await memberService.processSignup(newMember);
 
