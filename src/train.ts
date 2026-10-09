@@ -1,4 +1,4 @@
-console.log("\n >> S - Task << \n");
+console.log("\n >> T - Task << \n");
 
 // M-TASK
 // function SquareNumbers(numbers: number[]) {
@@ -89,12 +89,28 @@ console.log("\n >> S - Task << \n");
 
 // Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin. MASALAN: missingNumber([3, 0, 1]) return 2.
 
-function missingNumber(nums: number[]): number {
-  const n = nums.length;
-  const expectedSum = (n * (n + 1)) / 2;
-  const actualSum = nums.reduce((sum, num) => sum + num, 0);
-  return expectedSum - actualSum;
+// function missingNumber(nums: number[]): number {
+//   const n = nums.length;
+//   const expectedSum = (n * (n + 1)) / 2;
+//   const actualSum = nums.reduce((sum, num) => sum + num, 0);
+//   return expectedSum - actualSum;
+// }
+
+// console.log(missingNumber([3, 0, 1]));
+// console.log(missingNumber([0, 1]));
+
+// ===== T-TASK ===== //
+
+function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+  const a = [...arr1];
+  const b = [...arr2];
+  const result: number[] = [];
+
+  while (a.length && b.length) {
+    result.push(a[0] <= b[0] ? a.shift()! : b.shift()!);
+  }
+
+  return [...result, ...a, ...b];
 }
 
-console.log(missingNumber([3, 0, 1]));
-console.log(missingNumber([0, 1]));
+console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
