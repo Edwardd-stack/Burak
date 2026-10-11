@@ -1,4 +1,4 @@
-console.log("\n >> T - Task << \n");
+console.log("\n >> U - Task << \n");
 
 // M-TASK
 // function SquareNumbers(numbers: number[]) {
@@ -101,16 +101,25 @@ console.log("\n >> T - Task << \n");
 
 // ===== T-TASK ===== //
 
-function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
-  const a = [...arr1];
-  const b = [...arr2];
-  const result: number[] = [];
+// function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+//   const a = [...arr1];
+//   const b = [...arr2];
+//   const result: number[] = [];
 
-  while (a.length && b.length) {
-    result.push(a[0] <= b[0] ? a.shift()! : b.shift()!);
-  }
+//   while (a.length && b.length) {
+//     result.push(a[0] <= b[0] ? a.shift()! : b.shift()!);
+//   }
 
-  return [...result, ...a, ...b];
+//   return [...result, ...a, ...b];
+// }
+
+// console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
+
+// ===== U-TASK ===== //
+
+function sumOdds(n: number): number {
+  return Math.floor(n / 2);
 }
 
-console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
+console.log(sumOdds(9));
+console.log(sumOdds(11));
