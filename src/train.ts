@@ -1,4 +1,4 @@
-console.log("\n >> U - Task << \n");
+console.log("\n >> V - Task << \n");
 
 // M-TASK
 // function SquareNumbers(numbers: number[]) {
@@ -117,9 +117,24 @@ console.log("\n >> U - Task << \n");
 
 // ===== U-TASK ===== //
 
-function sumOdds(n: number): number {
-  return Math.floor(n / 2);
+// function sumOdds(n: number): number {
+//   return Math.floor(n / 2);
+// }
+
+// console.log(sumOdds(9));
+// console.log(sumOdds(11));
+
+// ===== V-TASK ===== //
+
+function countChars(str: string): Record<string, number> {
+  const result: Record<string, number> = {};
+
+  for (const char of str) {
+    result[char] = (result[char] ?? 0) + 1;
+  }
+
+  return result;
 }
 
-console.log(sumOdds(9));
-console.log(sumOdds(11));
+console.log(countChars("hello"));
+console.log(countChars("AI yaramas!"));
