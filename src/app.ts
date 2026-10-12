@@ -17,6 +17,13 @@ const store = new MongoDBStore({
 
 /** 1-ENTRANCE **/
 const app = express();
+
+if (process.env.NODE_ENV !== "production") {
+  app.get("/.well-known/appspecific/com.chrome.devtools.json", (req, res) => {
+    res.status(204).end();
+  });
+}
+
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true })); // Traditional API uchun xizmat qiladigan (Middleware DP)
 app.use(express.json()); // Rest API sifatida kelayotgan json datalarni o'tkazishga ruhsat beradi (Middleware DP) | json => object |
