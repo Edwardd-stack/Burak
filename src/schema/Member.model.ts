@@ -31,7 +31,7 @@ const memberSchema = new Schema(
 
     memberPassword: {
       type: String,
-      select: false,
+      select: false, // terminal va brauzer ga qaytarmaydi
       required: true,
     },
 

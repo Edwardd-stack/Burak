@@ -1,4 +1,4 @@
-console.log("\n >> V - Task << \n");
+console.log("\n >> W - Task << \n");
 
 // M-TASK
 // function SquareNumbers(numbers: number[]) {
@@ -126,15 +126,33 @@ console.log("\n >> V - Task << \n");
 
 // ===== V-TASK ===== //
 
-function countChars(str: string): Record<string, number> {
-  const result: Record<string, number> = {};
+// function countChars(str: string): Record<string, number> {
+//   const result: Record<string, number> = {};
 
-  for (const char of str) {
-    result[char] = (result[char] ?? 0) + 1;
+//   for (const char of str) {
+//     result[char] = (result[char] ?? 0) + 1;
+//   }
+
+//   return result;
+// }
+
+// console.log(countChars("hello"));
+// console.log(countChars("AI yaramas!"));
+
+// ===== W-TASK ===== //
+
+function chunkArray<T>(arr: T[], size: number): T[][] {
+  if (!Number.isInteger(size) || size <= 0) {
+    throw new Error("size musbat butun son bo'lishi kerak");
+  }
+
+  const result: T[][] = [];
+
+  for (let i = 0; i < arr.length; i += size) {
+    result.push(arr.slice(i, i + size));
   }
 
   return result;
 }
 
-console.log(countChars("hello"));
-console.log(countChars("AI yaramas!"));
+console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));

@@ -60,3 +60,32 @@
 // "enctype"="multipart/form-data" => Turli xil fayl formatdagi malumotlarni formdan yuborishga ruhsat beradi.
 
 // "this" => kirib kelayotgan "input"
+
+/** 
+
+======= JQuery actions: =======
+
+$(document).ready(mHandler) || $(function() {})
+
+$("#id").val() || $("#id").val(n)                         
+$("#id").html(<div></div>)
+$("#id").on('keypress', handler1).on('click', handler2)
+$("#id").on('focus', handler3).on('blur', handler4)
+$("#id").addClass("name")
+$("#id").removeClass("name")
+$("#id").toggleClass('className')
+$("#id").show()
+$("#id").hide() 
+$("#id").hasClass("someClass")
+$("#id").prepend()
+$("#id").append()
+
+$("#id").is(':checked') 
+$("#chat-game").change(handler)
+$("[id_no="jf12345"]")
+$("#id").attr("data-id")
+$("#id").attr("data-id", "jf12345")
+$("#id").css('format')
+$("#id").text()
+
+**/
