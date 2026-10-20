@@ -1,4 +1,4 @@
-console.log("\n >> W - Task << \n");
+console.log("\n >> X - Task << \n");
 
 // M-TASK
 // function SquareNumbers(numbers: number[]) {
@@ -141,18 +141,41 @@ console.log("\n >> W - Task << \n");
 
 // ===== W-TASK ===== //
 
-function chunkArray<T>(arr: T[], size: number): T[][] {
-  if (!Number.isInteger(size) || size <= 0) {
-    throw new Error("size musbat butun son bo'lishi kerak");
+// function chunkArray<T>(arr: T[], size: number): T[][] {
+//   if (!Number.isInteger(size) || size <= 0) {
+//     throw new Error("size musbat butun son bo'lishi kerak");
+//   }
+
+//   const result: T[][] = [];
+
+//   for (let i = 0; i < arr.length; i += size) {
+//     result.push(arr.slice(i, i + size));
+//   }
+
+//   return result;
+// }
+
+// console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
+
+// ===== X-TASK ===== //
+
+function countOccurrences(obj: object, key: string): number {
+  let count = 0;
+
+  for (const [k, value] of Object.entries(obj)) {
+    if (k === key) count++;
+
+    if (typeof value === "object" && value !== null) {
+      count += countOccurrences(value, key);
+    }
   }
 
-  const result: T[][] = [];
-
-  for (let i = 0; i < arr.length; i += size) {
-    result.push(arr.slice(i, i + size));
-  }
-
-  return result;
+  return count;
 }
 
-console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
+console.log(
+  countOccurrences(
+    { model: "Bugatti", steer: { model: "HANKOOK", size: 30 } },
+    "model",
+  ),
+);
