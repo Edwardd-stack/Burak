@@ -1,4 +1,4 @@
-console.log("\n >> X - Task << \n");
+console.log("\n >> Y - Task << \n");
 
 // M-TASK
 // function SquareNumbers(numbers: number[]) {
@@ -159,23 +159,31 @@ console.log("\n >> X - Task << \n");
 
 // ===== X-TASK ===== //
 
-function countOccurrences(obj: object, key: string): number {
-  let count = 0;
+// function countOccurrences(obj: object, key: string): number {
+//   let count = 0;
 
-  for (const [k, value] of Object.entries(obj)) {
-    if (k === key) count++;
+//   for (const [k, value] of Object.entries(obj)) {
+//     if (k === key) count++;
 
-    if (typeof value === "object" && value !== null) {
-      count += countOccurrences(value, key);
-    }
-  }
+//     if (typeof value === "object" && value !== null) {
+//       count += countOccurrences(value, key);
+//     }
+//   }
 
-  return count;
+//   return count;
+// }
+
+// console.log(
+//   countOccurrences(
+//     { model: "Bugatti", steer: { model: "HANKOOK", size: 30 } },
+//     "model",
+//   ),
+// );
+
+// ===== Y-TASK ===== //
+
+function findIntersection(arr1: number[], arr2: number[]): number[] {
+  return arr1.filter((value) => arr2.includes(value));
 }
 
-console.log(
-  countOccurrences(
-    { model: "Bugatti", steer: { model: "HANKOOK", size: 30 } },
-    "model",
-  ),
-);
+console.log(findIntersection([1, 2, 3], [3, 2, 0]));
