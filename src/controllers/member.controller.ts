@@ -2,18 +2,23 @@ import { Request, Response } from "express";
 import { T } from "../libs/types/common";
 import MemberService from "../models/Member.service";
 import { LoginInput, Member, MemberInput } from "../libs/types/member";
-import Errors from "../libs/Errors";
+import Errors, { HttpCode } from "../libs/Errors";
+import AuthService from "../models/Auth.service";
+import { AUTH_TIMER } from "../libs/config";
 
-const memberService = new MemberService(), // Model | Class
-  memberController: T = {};
+const memberService = new MemberService(); // Model | Class
+const authService = new AuthService();
+
+const memberController: T = {};
 
 // signup
 memberController.signup = async (req: Request, res: Response) => {
   try {
     console.log(">> signup <<");
     const input: MemberInput = req.body,
-      result: Member = await memberService.signup(input);
-    // TODO: TOKENS AUTHENTICATION
+      result: Member = await memberService.signup(input),
+      token = await authService.createToken(result);
+    console.log("token:", token);
 
     res.json({ member: result });
   } catch (err) {
@@ -28,8 +33,9 @@ memberController.login = async (req: Request, res: Response) => {
   try {
     console.log(">> login <<");
     const input: LoginInput = req.body,
-      result = await memberService.login(input);
-    // TODO: TOKENS AUTHENTICATION
+      result = await memberService.login(input),
+      token = await authService.createToken(result);
+    console.log("token:", token);
 
     res.json({ member: result });
   } catch (err) {
