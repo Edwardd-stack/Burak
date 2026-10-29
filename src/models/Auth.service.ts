@@ -9,9 +9,10 @@ class AuthService {
     this.secretToken = process.env.SECRET_TOKEN as string;
   }
 
+  // MemberData => Token
   public async createToken(payload: Member) {
     return new Promise((resolve, reject) => {
-      const duration = `${AUTH_TIMER}h`;
+      const duration = `${AUTH_TIMER}h`; // vaqti tugaganda token o'chib ketmaydi, expire bo'ladi xolos
       jwt.sign(
         payload,
         process.env.SECRET_TOKEN as string,
@@ -29,11 +30,15 @@ class AuthService {
     });
   }
 
+  // Token => MemberData ni ajratib olyapti
   public async checkAuth(token: string): Promise<Member> {
+    console.log("3");
     const result: Member = (await jwt.verify(
       token,
       this.secretToken,
     )) as Member;
+    console.log("4");
+
     console.log(`--- [AUTH] memberNick: ${result.memberNick} ---`);
     return result;
   }
