@@ -18,9 +18,13 @@ memberController.signup = async (req: Request, res: Response) => {
     const input: MemberInput = req.body,
       result: Member = await memberService.signup(input),
       token = await authService.createToken(result);
-    console.log("token:", token);
 
-    res.json({ member: result });
+    res.cookie("accessToken", token, {
+      maxAge: AUTH_TIMER * 3600 * 1000,
+      httpOnly: false,
+    });
+
+    res.status(HttpCode.CREATED).json({ member: result, accessToken: token });
   } catch (err) {
     console.log("Error, signup:", err);
     if (err instanceof Errors) res.status(err.code).json(err);
@@ -35,9 +39,13 @@ memberController.login = async (req: Request, res: Response) => {
     const input: LoginInput = req.body,
       result = await memberService.login(input),
       token = await authService.createToken(result);
-    console.log("token:", token);
 
-    res.json({ member: result });
+    res.cookie("accessToken", token, {
+      maxAge: AUTH_TIMER * 3600 * 1000,
+      httpOnly: false,
+    });
+
+    res.status(HttpCode.OK).json({ member: result, accessToken: token });
   } catch (err) {
     console.log("Error, login:", err);
     if (err instanceof Errors) res.status(err.code).json(err);
