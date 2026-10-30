@@ -32,12 +32,10 @@ class AuthService {
 
   // Token => MemberData ni ajratib olyapti
   public async checkAuth(token: string): Promise<Member> {
-    console.log("3");
     const result: Member = (await jwt.verify(
       token,
       this.secretToken,
     )) as Member;
-    console.log("4");
 
     console.log(`--- [AUTH] memberNick: ${result.memberNick} ---`);
     return result;
