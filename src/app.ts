@@ -26,6 +26,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/uploads", express.static("./uploads"));
 app.use(express.urlencoded({ extended: true })); // Traditional API uchun xizmat qiladigan (Middleware DP)
 app.use(express.json()); // Rest API sifatida kelayotgan json datalarni o'tkazishga ruhsat beradi (Middleware DP) | json => object |
 app.use(cookieParser());
