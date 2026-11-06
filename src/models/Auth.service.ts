@@ -32,13 +32,18 @@ class AuthService {
 
   // Token => MemberData ni ajratib olyapti
   public async checkAuth(token: string): Promise<Member> {
-    const result: Member = (await jwt.verify(
-      token,
-      this.secretToken,
-    )) as Member;
+    try {
+      const result: Member = (await jwt.verify(
+        token,
+        this.secretToken,
+      )) as Member;
 
-    console.log(`--- [AUTH] memberNick: ${result.memberNick} ---`);
-    return result;
+      console.log(`--- [AUTH] memberNick: ${result.memberNick} ---`);
+      return result;
+    } catch (err) {
+      console.log("Error, checkAuth:", err);
+      throw new Errors(HttpCode.UNAUTHORIZED, Message.NOT_AUTHENTICATED);
+    }
   }
 }
 
