@@ -1,8 +1,11 @@
 import { shapeIntoMongooseObjectId } from "../libs/config";
+import { ProductStatus } from "../libs/enums/product.enum";
 import Errors, { HttpCode, Message } from "../libs/Errors";
+import { T } from "../libs/types/common";
 import {
   Product,
   ProductInput,
+  ProductInquiry,
   ProductUpdateInput,
 } from "../libs/types/product";
 import ProductModel from "../schema/Product.model";
@@ -15,6 +18,35 @@ class ProductService {
   }
 
   /** SPA (users page) **/
+
+  // getProducts
+  public async getProducts(inquiry: ProductInquiry): Promise<Product[]> {
+    const match: T = { productStatus: ProductStatus.PROCESS };
+
+    if (inquiry.productCollection)
+      match.productCollection = inquiry.productCollection;
+    if (inquiry.search) {
+      match.productName = { $regex: new RegExp(inquiry.search, "i") };
+    }
+
+    const sort: T =
+      inquiry.order === "productPrice"
+        ? { [inquiry.order]: 1 } // pasdan yuqoriga
+        : { [inquiry.order]: -1 }; // qolgan hollarda yuqoridan pastga
+
+    const result = await this.productModel
+      // complex query with aggregation pipeline
+      .aggregate([
+        { $match: match },
+        { $sort: sort },
+        { $skip: (inquiry.page * 1 - 1) * inquiry.limit }, // ignore = 0
+        { $limit: inquiry.limit * 1 }, // pagination = 3
+      ])
+      .exec();
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
+    return result;
+  }
 
   /** SSR (adminka) **/
 
