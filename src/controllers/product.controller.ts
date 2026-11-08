@@ -23,6 +23,7 @@ productController.getProducts = async (req: Request, res: Response) => {
       page: Number(page),
       limit: Number(limit),
     };
+
     if (productCollection)
       inquiry.productCollection = String(
         productCollection,
